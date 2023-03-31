@@ -1,11 +1,28 @@
 #include "main.h"
 /**
- * reset_to_98-Resets the value of a variable back to 98.
- * @n:Variable to be reset.
- * Return:Void.
+ * _strcat - concatenates two strings,
+ *
+ * @dest: destination.
+ * @src: source.
+ * Return: the pointer to dest.
+ *
  */
-
-void reset_to_98(int *n)
+char *_strcat(char *dest, char *src)
 {
-	*n = 98;
+	int count = 0, count2 = 0;
+
+	while (*(dest + count) != '\0')
+	{
+		count++;
+	}
+
+	while (count2 >= 0)
+	{
+		*(dest + count) = *(src + count2);
+		if (*(src + count2) == '\0')
+			break;
+		count++;
+		count2++;
+	}
+	return (dest);
 }
