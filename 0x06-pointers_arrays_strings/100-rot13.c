@@ -1,21 +1,28 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
- * print_array - prints n elements of an array of integers.
- * @a: input array.
- * @n: input n elements
- * Return: no return.
+ * rot13 - encodes a string using rot13
+ * @s: input string.
+ * Return: the pointer to dest.
  */
-void print_array(int *a, int n)
-{
-	int i = 0;
 
-	for (; i < n; i++)
+char *rot13(char *s)
+{
+	int i, j;
+
+	char *x = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char *y = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		printf("%d", *(a + i));
-		if (i != (n - 1))
-			printf(", ");
+		for (j = 0; x[j] != '\0'; j++)
+		{
+			if (s[i] == x[j])
+			{
+				s[i] = y[j];
+				break;
+			}
+		}
 	}
-	printf("\n");
+
+	return (s);
 }
