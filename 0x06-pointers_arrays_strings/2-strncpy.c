@@ -1,17 +1,20 @@
 #include "main.h"
 /**
- *_strlen-Finds the length of a string.
- *@s:String pointer to the string whose length is to be found.
- *Return: returns the length of the string.
+ * _strncpy - copies a string
+ * @dest: destination.
+ * @src: source.
+ * @n: amount of bytes from src.
+ * Return: the pointer to dest.
  */
 
-int _strlen(char *s)
+char *_strncpy(char *dest, char *src, int n)
 {
-	int p = 0;
-	/incremeant up to when the last character is NULL,\0/
-	while (*(s + p) != 0)
-	{
-		p++;
-	}
-	return (p);
+	int i;
+
+	for (i = 0; i < n && src[i] != '\0'; i++)
+		dest[i] = src[i];
+	for ( ; i < n; i++)
+		dest[i] = '\0';
+
+	return (dest);
 }
